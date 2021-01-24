@@ -1,36 +1,53 @@
-### class for general animals 
-setClass("animal", 
-         representation(name = "character", 
-                        weight = "numeric", 
-                        female = "logical"))
+### class for general animals
+setClass("animal",
+  representation(
+    name = "character",
+    weight = "numeric",
+    female = "logical"
+  ),
+  validity = check_animal
+)
 
 ## animal sub-class for preys (Beutetiere)
 setClass("prey",
-         representation(hide = "numeric"),
-         contains = "animal")
+  representation(hide = "numeric"),
+  contains = "animal",
+  validity = check_prey
+)
 
 # prey-subclass for mice
 setClass("mouse",
-         contains = "prey")
+  contains = "prey",
+  validity = check_prey
+)
 
 # prey-subclass for deers
 setClass("deer",
-         contains = "prey")
+  contains = "prey",
+  validity = check_prey
+)
 
 # prey-subclass for rabbits
 setClass("rabbit",
-         contains = "prey")
+  contains = "prey",
+  validity = check_prey
+)
 
 ## animal sub-class for predators
 setClass("predator",
-         representation(seek = "numeric"), 
-         contains = "animal")
+  representation(seek = "numeric"),
+  contains = "animal",
+  validity = check_predator
+)
 
 # predator-subclass for hawks
 setClass("hawk",
-         contains = "predator")
+  contains = "predator",
+  validity = check_predator
+)
 
 # predator-subclass for lynx'
 setClass("lynx",
-         contains = "predator")
-
+  contains = "predator",
+  validity = check_predator
+)
